@@ -2,6 +2,8 @@
 
 うるおいで、未来を変える。
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/bi0407/face-maskLP)
+
 ## 概要
 
 MoisT Mask の商品紹介ランディングページです。
@@ -23,14 +25,22 @@ EGF・プラセンタ・セラミド配合の日本製フェイスマスクを�
 - Vanilla JavaScript（スムーズスクロール・Intersection Observer API）
 - Google Fonts（Noto Sans JP, Playfair Display）
 
-## デプロイ
+## 🚀 デプロイ
 
-このサイトは静的HTMLなので、以下のプラットフォームで簡単にデプロイできます:
+### Renderでワンクリックデプロイ（推奨）
 
-- GitHub Pages
-- Render
-- Netlify
-- Vercel
+上部の「Deploy to Render」ボタンをクリックするだけで、すぐに公開できます！
+
+詳細な手順は [`RENDER_DEPLOY.md`](RENDER_DEPLOY.md) を参照してください。
+
+### その他のプラットフォーム
+
+このサイトは静的HTMLなので、以下のプラットフォームでも簡単にデプロイできます:
+
+- **Render** - 完全無料、SSL自動、推奨
+- GitHub Pages - GitHubで簡単公開
+- Netlify - 高速デプロイ
+- Vercel - Next.js開発元
 
 ## ローカルでの確認
 
@@ -55,9 +65,14 @@ npx http-server
 
 ```
 face-maskLP/
-├── index.html        # メインHTMLファイル
-├── LP_COPY.md        # LPコピー（マークダウン版）
-└── README.md         # このファイル
+├── index.html              # メインLP（レスポンシブ対応）
+├── LP_COPY.md              # LPコピー（マークダウン版）
+├── README.md               # このファイル
+├── DEPLOYMENT_GUIDE.md     # 詳細なデプロイ手順
+├── RENDER_DEPLOY.md        # Render専用デプロイガイド
+├── QUICKSTART.md           # 3ステップクイックガイド
+├── render.yaml             # Render自動設定ファイル
+└── .gitignore             # Git除外設定
 ```
 
 ## 製作情報
