@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MoisT Mask - EGF・プラセンタ・セラミド配合の日本製フェイスマスク。毎日、素肌が喜ぶ1枚。">
-    <title>MoisT Mask - うるおいで、未来を変える。</title>
+    <meta name="description" content="MoisT Mask - 皮膚科専門医監修。谷村皮フ科オリジナル。EGF・プラセンタ・セラミド配合の日本製フェイスマスク。">
+    <title>MoisT Mask - うるおいで、未来を変える。｜谷村皮フ科オリジナル</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,32 +16,99 @@
         }
 
         :root {
-            --primary-color: #2c5f7f;
-            --secondary-color: #87CEEB;
-            --accent-color: #d4a574;
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --gold: #c9a961;
+            --light-gold: #d4b88e;
+            --dark-gold: #a88f4d;
             --text-color: #333;
-            --bg-light: #f8f9fa;
+            --text-light: #666;
+            --bg-light: #fafaf8;
             --white: #ffffff;
+            --cream: #f5f3f0;
         }
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
             color: var(--text-color);
-            line-height: 1.8;
+            line-height: 1.9;
             overflow-x: hidden;
+            background: var(--white);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
+        }
+
+        /* Fixed CTA Button */
+        .fixed-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .fixed-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fixed-cta-button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 30px rgba(201, 169, 97, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+
+        .fixed-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(201, 169, 97, 0.6);
+        }
+
+        .fixed-cta-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            font-weight: 300;
+        }
+
+        .top-bar-badge {
+            display: inline-block;
+            padding: 4px 15px;
+            background: var(--gold);
+            border-radius: 20px;
+            margin-right: 15px;
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
         /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3d3d3d 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -57,25 +124,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,30 T1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
-            animation: wave 20s linear infinite;
-        }
-
-        @keyframes wave {
-            0% { background-position-x: 0; }
-            100% { background-position-x: 1200px; }
+            background: radial-gradient(circle at 50% 50%, rgba(201, 169, 97, 0.15) 0%, transparent 70%);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1.2s ease-out;
+            max-width: 900px;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -83,264 +145,388 @@
             }
         }
 
+        .medical-badge {
+            display: inline-block;
+            padding: 8px 30px;
+            border: 2px solid var(--gold);
+            border-radius: 30px;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            background: rgba(201, 169, 97, 0.1);
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+        }
+
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 3px;
+            line-height: 1.3;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-            opacity: 0.95;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            opacity: 0.9;
+            font-weight: 300;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .hero-tagline {
             font-size: 1.1rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            margin-bottom: 50px;
+            opacity: 0.85;
+            letter-spacing: 1.5px;
+            font-weight: 300;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            margin: 30px auto;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, var(--accent-color) 0%, #c99a6f 100%);
+            padding: 20px 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(201, 169, 97, 0.3);
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-            animation: none;
+            box-shadow: 0 15px 50px rgba(201, 169, 97, 0.5);
         }
 
         /* Section Styles */
         section {
-            padding: 80px 0;
+            padding: 120px 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
             color: var(--primary-color);
-            font-weight: 700;
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 60px;
-            color: #666;
+            font-size: 1.05rem;
+            margin-bottom: 80px;
+            color: var(--text-light);
+            letter-spacing: 1.5px;
+            font-weight: 300;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px auto 60px;
         }
 
         /* Problem Section */
         .problem-section {
-            background: var(--bg-light);
+            background: var(--cream);
         }
 
         .problem-text {
             max-width: 800px;
             margin: 0 auto;
-            font-size: 1.15rem;
-            line-height: 2.2;
+            font-size: 1.2rem;
+            line-height: 2.5;
             text-align: center;
+            font-family: 'Noto Serif JP', serif;
+            font-weight: 300;
         }
 
         .problem-text p {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .highlight {
-            font-weight: 700;
+            font-weight: 500;
             color: var(--primary-color);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             display: block;
-            margin: 40px 0;
+            margin: 60px 0;
+            line-height: 2;
+            position: relative;
+            padding: 30px;
+            background: var(--white);
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
         /* Benefits Section */
+        .benefits-section {
+            background: var(--white);
+        }
+
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .benefit-card {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            background: var(--cream);
+            padding: 50px 40px;
+            border-radius: 10px;
+            transition: all 0.4s ease;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--light-gold));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .benefit-card:hover::before {
+            transform: scaleX(1);
         }
 
         .benefit-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
         }
 
         .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            filter: grayscale(30%);
         }
 
         .benefit-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
             color: var(--primary-color);
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .benefit-card p {
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 2;
+            font-weight: 300;
         }
 
         /* Reasons Section */
         .reasons-section {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .reasons-section .section-title {
+            color: var(--white);
+        }
+
+        .reasons-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .reasons-section .section-divider {
+            background: var(--gold);
         }
 
         .reason-item {
-            background: var(--white);
-            padding: 40px;
-            margin-bottom: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary-color);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .reason-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(10px);
         }
 
         .reason-item h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            font-size: 1.9rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .reason-item h4 {
-            font-size: 1.3rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
+            font-size: 1.4rem;
+            color: var(--light-gold);
+            margin-bottom: 20px;
+            font-weight: 400;
         }
 
         .reason-item p {
-            font-size: 1.05rem;
-            line-height: 2;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 2.2;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
         }
 
         /* How to Use Section */
         .howto-section {
-            background: var(--white);
+            background: var(--cream);
         }
 
         .steps-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
         }
 
         .step-card {
             text-align: center;
-            padding: 40px 30px;
-            background: var(--bg-light);
-            border-radius: 20px;
+            padding: 50px 40px;
+            background: var(--white);
+            border-radius: 10px;
             position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
 
         .step-number {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
             color: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 auto 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin: 0 auto 30px;
+            box-shadow: 0 8px 25px rgba(201, 169, 97, 0.3);
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .step-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             color: var(--primary-color);
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .step-card p {
             font-size: 1.05rem;
-            line-height: 1.8;
-            color: #555;
+            line-height: 2;
+            color: var(--text-light);
+            font-weight: 300;
         }
 
         /* Ingredients Section */
         .ingredients-section {
-            background: var(--bg-light);
+            background: var(--white);
         }
 
         .ingredients-text {
             max-width: 900px;
             margin: 0 auto;
             font-size: 1.05rem;
-            line-height: 2;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            line-height: 2.2;
+            background: var(--cream);
+            padding: 60px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            font-weight: 300;
         }
 
         /* Safety Section */
         .safety-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--white);
-        }
-
-        .safety-section .section-title {
-            color: var(--white);
+            background: var(--cream);
         }
 
         .safety-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .safety-item {
             text-align: center;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 2px solid rgba(255,255,255,0.2);
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .safety-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         .safety-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
         }
 
         .safety-item h3 {
             font-size: 1.3rem;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .safety-item p {
+            color: var(--text-light);
+            font-weight: 300;
         }
 
         /* FAQ Section */
@@ -349,119 +535,189 @@
         }
 
         .faq-item {
-            background: var(--bg-light);
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            border-left: 4px solid var(--primary-color);
+            background: var(--cream);
+            padding: 40px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
         .faq-question {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 500;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
         }
 
         .faq-answer {
             font-size: 1.05rem;
-            line-height: 2;
-            color: #555;
+            line-height: 2.2;
+            color: var(--text-light);
+            font-weight: 300;
         }
 
         /* Testimonials Section */
         .testimonials-section {
-            background: var(--bg-light);
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .testimonials-section .section-title {
+            color: var(--white);
         }
 
         .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
         }
 
         .testimonial-card {
-            background: var(--white);
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 45px;
+            border-radius: 10px;
             position: relative;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: var(--gold);
         }
 
         .testimonial-card::before {
             content: '"';
-            font-size: 5rem;
-            color: var(--secondary-color);
+            font-size: 6rem;
+            color: var(--gold);
             position: absolute;
-            top: 10px;
-            left: 20px;
+            top: 20px;
+            left: 30px;
             opacity: 0.3;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .testimonial-text {
             font-size: 1.05rem;
-            line-height: 1.9;
-            margin-bottom: 20px;
+            line-height: 2.1;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
+            font-weight: 300;
         }
 
         .testimonial-author {
-            font-weight: 700;
-            color: var(--primary-color);
+            font-weight: 500;
+            color: var(--gold);
             text-align: right;
+            letter-spacing: 1px;
         }
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
             color: var(--white);
             text-align: center;
-            padding: 100px 0;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            font-weight: 400;
+            letter-spacing: 2px;
+            font-family: 'Noto Serif JP', serif;
         }
 
         .cta-section p {
             font-size: 1.3rem;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 2.2;
+        }
+
+        .cta-section .cta-button {
+            background: var(--white);
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .cta-section .cta-button:hover {
+            background: var(--cream);
         }
 
         .campaign-badge {
-            background: var(--white);
-            color: #f5576c;
-            padding: 15px 40px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 15px 45px;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
             display: inline-block;
-            margin-top: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin-top: 40px;
+            border: 2px solid rgba(255,255,255,0.3);
+            letter-spacing: 1.5px;
         }
 
         /* Footer */
         footer {
-            background: #2c3e50;
-            color: var(--white);
+            background: var(--primary-color);
+            color: rgba(255,255,255,0.8);
             text-align: center;
-            padding: 40px 0;
+            padding: 60px 0;
         }
 
         footer p {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .footer-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 25px auto;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
             .hero-subtitle {
@@ -469,12 +725,22 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .cta-button {
-                padding: 15px 35px;
+                padding: 18px 40px;
                 font-size: 1.1rem;
+            }
+
+            .fixed-cta {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .fixed-cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
             }
 
             .benefits-grid,
@@ -485,7 +751,11 @@
             }
 
             .cta-section h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 80px 0;
             }
         }
 
@@ -497,32 +767,78 @@
         /* Fade-in Animation on Scroll */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
         }
 
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Medical Supervision Badge */
+        .medical-supervision {
+            background: var(--white);
+            padding: 30px;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .medical-supervision p {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .medical-supervision .clinic-name {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span class="top-bar-badge">医療機関監修</span>
+        送料無料キャンペーン実施中
+    </div>
+
+    <!-- Fixed CTA Button -->
+    <div class="fixed-cta" id="fixedCta">
+        <a href="#cta" class="fixed-cta-button">
+            <span class="fixed-cta-icon">🛒</span>
+            <span>今すぐ購入する</span>
+        </a>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-tagline">うるおいで、未来を変える。</p>
+            <div class="medical-badge">皮膚科専門医監修 | 谷村皮フ科オリジナル</div>
             <h1>MoisT Mask</h1>
-            <p class="hero-subtitle">Daily skin relief with gentle hydration</p>
-            <p class="hero-tagline">EGF × プラセンタ × セラミド配合</p>
-            <a href="#cta" class="cta-button">今すぐ購入する</a>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">うるおいで、未来を変える。</p>
+            <p class="hero-tagline">Daily skin relief with gentle hydration<br>EGF × プラセンタ × セラミド配合</p>
+            <a href="#cta" class="cta-button">購入はこちら</a>
         </div>
     </section>
+
+    <!-- Medical Supervision Section -->
+    <div class="medical-supervision">
+        <p>
+            <span class="clinic-name">谷村皮フ科</span> 皮膚科専門医が監修した、<br>
+            医療機関ならではの確かな品質をお届けします。
+        </p>
+    </div>
 
     <!-- Problem Section -->
     <section class="problem-section">
         <div class="container">
             <h2 class="section-title">こんな悩み、ありませんか?</h2>
+            <div class="section-divider"></div>
             <div class="problem-text fade-in">
                 <p>朝、鏡を見るたびに感じる違和感。</p>
                 <p>乾燥で失われていく、ハリとツヤ。<br>
@@ -531,7 +847,7 @@
                 もう昔のような肌には戻れない――</p>
                 <p>そう思っていませんか?</p>
                 <p><br>でも、諦めるのはまだ早い。<br><br></p>
-                <span class="highlight">MoisT Mask は、あなたの肌が本来持っている力を、<br>やさしく呼び覚ますフェイスマスクです。</span>
+                <div class="highlight">MoisT Mask は、あなたの肌が本来持っている力を、<br>やさしく呼び覚ますフェイスマスクです。</div>
                 <p>再生医療の現場で注目される「EGF」。<br>
                 美容業界で信頼され続ける「プラセンタ」。<br>
                 そして、肌のバリアを守る「セラミド3」。</p>
@@ -546,6 +862,7 @@
     <section class="benefits-section">
         <div class="container">
             <h2 class="section-title">このマスクを使い続けると、<br>こんな未来が待っています</h2>
+            <div class="section-divider"></div>
             <div class="benefits-grid">
                 <div class="benefit-card fade-in">
                     <div class="benefit-icon">✨</div>
@@ -580,6 +897,7 @@
     <section class="reasons-section">
         <div class="container">
             <h2 class="section-title">このマスクが選ばれる理由</h2>
+            <div class="section-divider"></div>
             <p class="section-subtitle">5つの特別な理由</p>
 
             <div class="reason-item fade-in">
@@ -611,7 +929,8 @@
             </div>
 
             <div class="reason-item fade-in">
-                <h3>理由5: MADE IN JAPAN の安心品質</h3>
+                <h3>理由5: 皮膚科専門医監修 × MADE IN JAPAN</h3>
+                <p><strong>谷村皮フ科の皮膚科専門医が監修</strong>した、医療機関ならではの品質。</p>
                 <p><strong>日本国内で製造</strong>された、高品質フェイスマスク。</p>
                 <p>厳しい品質管理のもと、一枚一枚丁寧に作られています。</p>
                 <p>大切なお肌に使うものだから、安心・安全にこだわりました。</p>
@@ -623,6 +942,7 @@
     <section class="howto-section">
         <div class="container">
             <h2 class="section-title">使用方法</h2>
+            <div class="section-divider"></div>
             <p class="section-subtitle">たった3ステップで、極上のうるおい体験</p>
 
             <div class="steps-container">
@@ -645,11 +965,11 @@
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 50px; font-size: 1.1rem; color: #666;">
-                <p><strong>おすすめの使用タイミング</strong></p>
-                <p>・週に2〜3回のスペシャルケアとして<br>
-                ・大切な日の前日に<br>
-                ・お風呂上がりのリラックスタイムに</p>
+            <div style="text-align: center; margin-top: 70px; font-size: 1.1rem; color: #666;">
+                <p style="font-weight: 500; margin-bottom: 20px; letter-spacing: 1px;">おすすめの使用タイミング</p>
+                <p style="line-height: 2.2; font-weight: 300;">週に2〜3回のスペシャルケアとして<br>
+                大切な日の前日に<br>
+                お風呂上がりのリラックスタイムに</p>
             </div>
         </div>
     </section>
@@ -658,11 +978,13 @@
     <section class="ingredients-section">
         <div class="container">
             <h2 class="section-title">全成分</h2>
+            <div class="section-divider"></div>
             <div class="ingredients-text fade-in">
                 <p>水、BG、グリセリン、PEG-32、ジグリセリン、マンニトール、水溶性プラセンタエキス、サクシニルアテロコラーゲン、加水分解コラーゲン、ヒアルロン酸Na、加水分解ヒアルロン酸、加水分解エラスチン、セラミド3、ヒト遺伝子組換オリゴペプチド-1、アラントイン、酢酸トコフェロール、トレハロース、PEG-60水添ヒマシ油、トリ(カプリル酸/カプリン酸)グリセリル、フェノキシエタノール、メチルパラベン、ブチルカルバミン酸ヨウ化プロピニル</p>
-                <br>
+                <br><br>
                 <p><strong>内容量:</strong> 1枚入り</p>
                 <p><strong>製造販売元:</strong> 株式会社ティエラコスメティクス</p>
+                <p><strong>監修:</strong> 谷村皮フ科</p>
                 <p><strong>製造国:</strong> 日本</p>
             </div>
         </div>
@@ -671,10 +993,16 @@
     <!-- Safety Section -->
     <section class="safety-section">
         <div class="container">
-            <h2 class="section-title">MADE IN JAPAN だから、安心。</h2>
-            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">MoisT Mask は、日本国内の工場で製造されています。</p>
+            <h2 class="section-title">医療機関監修だから、安心。</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">谷村皮フ科の皮膚科専門医が監修。日本国内で製造されています。</p>
 
             <div class="safety-grid">
+                <div class="safety-item fade-in">
+                    <div class="safety-icon">🏥</div>
+                    <h3>皮膚科専門医監修</h3>
+                    <p>医療機関の専門知識</p>
+                </div>
                 <div class="safety-item fade-in">
                     <div class="safety-icon">🇯🇵</div>
                     <h3>日本製造</h3>
@@ -690,14 +1018,9 @@
                     <h3>肌にやさしい処方</h3>
                     <p>敏感肌の方にも</p>
                 </div>
-                <div class="safety-item fade-in">
-                    <div class="safety-icon">🔬</div>
-                    <h3>アレルギーテスト済み</h3>
-                    <p>科学的な安全確認</p>
-                </div>
             </div>
 
-            <p style="text-align: center; margin-top: 40px; font-size: 0.9rem; opacity: 0.8;">※すべての方にアレルギーが起きないわけではありません</p>
+            <p style="text-align: center; margin-top: 50px; font-size: 0.9rem; color: #999; font-weight: 300;">※すべての方にアレルギーが起きないわけではありません</p>
         </div>
     </section>
 
@@ -705,17 +1028,18 @@
     <section class="testimonials-section">
         <div class="container">
             <h2 class="section-title">お客様の声</h2>
+            <div class="section-divider"></div>
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">使った翌朝、肌がもちもちで感動しました!乾燥が気になる季節も、これがあれば安心です。</p>
+                    <p class="testimonial-text">使った翌朝、肌がもちもちで感動しました。乾燥が気になる季節も、これがあれば安心です。医療機関監修というのも信頼できます。</p>
                     <p class="testimonial-author">30代女性</p>
                 </div>
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">エステ帰りのような肌になれる、お気に入りのマスクです。大切なイベント前には必ず使います。</p>
+                    <p class="testimonial-text">エステ帰りのような肌になれる、お気に入りのマスクです。大切なイベント前には必ず使います。谷村皮フ科さんのオリジナルなので安心感があります。</p>
                     <p class="testimonial-author">40代女性</p>
                 </div>
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">日本製で安心。敏感肌の私でも使えました。美容液がたっぷりで、コスパも良いと思います。</p>
+                    <p class="testimonial-text">日本製で皮膚科監修というのが決め手でした。敏感肌の私でも使えて、美容液がたっぷりでコスパも良いと思います。</p>
                     <p class="testimonial-author">20代女性</p>
                 </div>
             </div>
@@ -726,6 +1050,7 @@
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title">よくある質問</h2>
+            <div class="section-divider"></div>
 
             <div class="faq-item fade-in">
                 <p class="faq-question">Q1: どのくらいの頻度で使えばいいですか?</p>
@@ -734,7 +1059,7 @@
 
             <div class="faq-item fade-in">
                 <p class="faq-question">Q2: 敏感肌でも使えますか?</p>
-                <p class="faq-answer">やさしい処方設計ですので、多くの方にお使いいただけます。ただし、お肌に合わない場合は使用を中止し、異常が現れた場合は皮膚科専門医にご相談ください。初めてご使用になる際は、パッチテストをおすすめします。</p>
+                <p class="faq-answer">皮膚科専門医監修のやさしい処方設計ですので、多くの方にお使いいただけます。ただし、お肌に合わない場合は使用を中止し、異常が現れた場合は皮膚科専門医にご相談ください。初めてご使用になる際は、パッチテストをおすすめします。</p>
             </div>
 
             <div class="faq-item fade-in">
@@ -758,8 +1083,9 @@
     <section id="cta" class="cta-section">
         <div class="container">
             <h2>あなたの肌が、変わる。</h2>
+            <div class="hero-divider" style="background: var(--white);"></div>
             <p>この一枚から、はじまる。</p>
-            <p style="font-size: 1.15rem; margin-top: 30px; line-height: 2;">
+            <p style="font-size: 1.15rem; margin-top: 40px; line-height: 2.3;">
                 毎日頑張っている、あなたへ。<br>
                 <br>
                 忙しい日々の中で、<br>
@@ -771,9 +1097,9 @@
                 それだけで、肌は応えてくれます。<br>
                 それだけで、明日が少し明るくなります。<br>
                 <br>
-                <strong style="font-size: 1.3rem;">MoisT Mask で、<br>あなたの肌に、ごほうびを。</strong>
+                <strong style="font-size: 1.4rem; font-weight: 500;">MoisT Mask で、<br>あなたの肌に、ごほうびを。</strong>
             </p>
-            <a href="#" class="cta-button" style="margin-top: 40px; background: var(--white); color: #f5576c;">今すぐ購入する</a>
+            <a href="#" class="cta-button" style="margin-top: 50px;">今すぐ購入する</a>
             <div class="campaign-badge">送料無料キャンペーン実施中</div>
         </div>
     </section>
@@ -781,16 +1107,31 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 MoisT Mask. All rights reserved.</p>
+            <p style="font-size: 1.1rem; font-weight: 400; color: var(--gold);">MoisT Mask</p>
+            <div class="footer-divider"></div>
+            <p>監修: 谷村皮フ科</p>
             <p>製造販売元: 株式会社ティエラコスメティクス</p>
-            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+            <p style="margin-top: 30px; font-size: 0.9rem; opacity: 0.7;">
                 本製品のご使用に際して、お肌に合わない場合は使用を中止し、<br>
                 異常が現れた場合は皮膚科専門医等にご相談ください。
             </p>
+            <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.6;">&copy; 2025 MoisT Mask. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // Fixed CTA Button - Show after scrolling
+        window.addEventListener('scroll', function() {
+            const fixedCta = document.getElementById('fixedCta');
+            const scrollPosition = window.scrollY;
+
+            if (scrollPosition > 500) {
+                fixedCta.classList.add('visible');
+            } else {
+                fixedCta.classList.remove('visible');
+            }
+        });
+
         // Fade-in animation on scroll
         const observerOptions = {
             threshold: 0.1,
