@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MoisT Mask - EGF・プラセンタ・セラミド配合の日本製フェイスマスク。毎日、素肌が喜ぶ1枚。">
+    <title>MoisT Mask - うるおいで、未来を変える。</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5f7f;
+            --secondary-color: #87CEEB;
+            --accent-color: #d4a574;
+            --text-color: #333;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0 Q300,60 600,30 T1200,60 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x bottom;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { background-position-x: 0; }
+            100% { background-position-x: 1200px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            opacity: 0.95;
+        }
+
+        .hero-tagline {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #c99a6f 100%);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            animation: none;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-bottom: 60px;
+            color: #666;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--bg-light);
+        }
+
+        .problem-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            line-height: 2.2;
+            text-align: center;
+        }
+
+        .problem-text p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            display: block;
+            margin: 40px 0;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .benefit-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Reasons Section */
+        .reasons-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .reason-item {
+            background: var(--white);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .reason-item h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .reason-item h4 {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .reason-item p {
+            font-size: 1.05rem;
+            line-height: 2;
+            margin-bottom: 15px;
+        }
+
+        /* How to Use Section */
+        .howto-section {
+            background: var(--white);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .step-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .step-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Ingredients Section */
+        .ingredients-section {
+            background: var(--bg-light);
+        }
+
+        .ingredients-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            line-height: 2;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Safety Section */
+        .safety-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+        }
+
+        .safety-section .section-title {
+            color: var(--white);
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .safety-item {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .safety-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .safety-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: var(--white);
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .faq-answer {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--secondary-color);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.3;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: right;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .campaign-badge {
+            background: var(--white);
+            color: #f5576c;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 1.1rem;
+            }
+
+            .benefits-grid,
+            .steps-container,
+            .safety-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade-in Animation on Scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">うるおいで、未来を変える。</p>
+            <h1>MoisT Mask</h1>
+            <p class="hero-subtitle">Daily skin relief with gentle hydration</p>
+            <p class="hero-tagline">EGF × プラセンタ × セラミド配合</p>
+            <a href="#cta" class="cta-button">今すぐ購入する</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">こんな悩み、ありませんか?</h2>
+            <div class="problem-text fade-in">
+                <p>朝、鏡を見るたびに感じる違和感。</p>
+                <p>乾燥で失われていく、ハリとツヤ。<br>
+                どんなに高いクリームを塗っても、<br>
+                どんなに念入りにケアしても、<br>
+                もう昔のような肌には戻れない――</p>
+                <p>そう思っていませんか?</p>
+                <p><br>でも、諦めるのはまだ早い。<br><br></p>
+                <span class="highlight">MoisT Mask は、あなたの肌が本来持っている力を、<br>やさしく呼び覚ますフェイスマスクです。</span>
+                <p>再生医療の現場で注目される「EGF」。<br>
+                美容業界で信頼され続ける「プラセンタ」。<br>
+                そして、肌のバリアを守る「セラミド3」。</p>
+                <p>科学が証明した美容成分を、<br>一枚のマスクに贅沢に凝縮しました。</p>
+                <p><strong>毎日のケアが、未来の自信に変わる。<br>
+                たった15分で、肌が応えてくれる。</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="section-title">このマスクを使い続けると、<br>こんな未来が待っています</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">✨</div>
+                    <h3>朝の肌が、違う。</h3>
+                    <p>洗顔後の肌がもっちり。触れるたびに嬉しくなる弾力。</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">💄</div>
+                    <h3>メイクのりが驚くほど変わる。</h3>
+                    <p>ファンデーションが浮かない。夕方まで崩れにくい。</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">💧</div>
+                    <h3>乾燥に負けない、強い肌へ。</h3>
+                    <p>季節の変わり目も、エアコンの中でも、うるおいキープ。</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🌸</div>
+                    <h3>すっぴんに自信が持てる。</h3>
+                    <p>内側から輝くような透明感。年齢を感じさせない柔らかさ。</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">😊</div>
+                    <h3>鏡を見るのが楽しみになる。</h3>
+                    <p>「肌、きれいになった?」そう言われる日が増える。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reasons Section -->
+    <section class="reasons-section">
+        <div class="container">
+            <h2 class="section-title">このマスクが選ばれる理由</h2>
+            <p class="section-subtitle">5つの特別な理由</p>
+
+            <div class="reason-item fade-in">
+                <h3>理由1: 再生医療技術を応用「EGF」配合</h3>
+                <p><strong>EGF(ヒト遺伝子組換オリゴペプチド-1)</strong>は、ノーベル賞を受賞した成分を基に開発された、次世代のエイジングケア成分。</p>
+                <p>肌本来の力をサポートし、ハリ・弾力のある若々しい印象へ導きます。</p>
+            </div>
+
+            <div class="reason-item fade-in">
+                <h3>理由2: トリプル保湿で、深く満たす</h3>
+                <h4>プラセンタエキス × コラーゲン × ヒアルロン酸</h4>
+                <p><strong>・プラセンタエキス:</strong> 整肌・ハリ・ツヤをサポート</p>
+                <p><strong>・コラーゲン:</strong> 肌の土台を支え、ふっくら弾力肌へ</p>
+                <p><strong>・ヒアルロン酸:</strong> 1gで6Lの水を抱える、驚異の保水力</p>
+                <p>3つの美容成分が、角質層の奥深くまで浸透。内側から溢れるような、うるおいを実感できます。</p>
+            </div>
+
+            <div class="reason-item fade-in">
+                <h3>理由3: セラミド3でバリア機能を守る</h3>
+                <p><strong>セラミド3</strong>は、肌の保護膜を形成する重要な成分。</p>
+                <p>外部刺激から肌を守り、うるおいを逃がさないバリア機能をサポート。</p>
+                <p>敏感に傾きがちな肌も、やさしく守ります。</p>
+            </div>
+
+            <div class="reason-item fade-in">
+                <h3>理由4: 肌荒れ防止成分「アラントイン」配合</h3>
+                <p><strong>アラントイン</strong>は、肌荒れを防ぎ、すこやかな肌環境を整える成分。</p>
+                <p>ゆらぎやすい季節も、安心して使えます。</p>
+            </div>
+
+            <div class="reason-item fade-in">
+                <h3>理由5: MADE IN JAPAN の安心品質</h3>
+                <p><strong>日本国内で製造</strong>された、高品質フェイスマスク。</p>
+                <p>厳しい品質管理のもと、一枚一枚丁寧に作られています。</p>
+                <p>大切なお肌に使うものだから、安心・安全にこだわりました。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="howto-section">
+        <div class="container">
+            <h2 class="section-title">使用方法</h2>
+            <p class="section-subtitle">たった3ステップで、極上のうるおい体験</p>
+
+            <div class="steps-container">
+                <div class="step-card fade-in">
+                    <div class="step-number">1</div>
+                    <h3>洗顔後の清潔なお肌に</h3>
+                    <p>洗顔後、タオルで優しく水気を拭き取ってください。化粧水で肌を整えた後の使用もおすすめです。</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">2</div>
+                    <h3>目と口を避けてお顔に装着</h3>
+                    <p>袋から取り出し、シートを広げます。目と口の位置を合わせて、顔全体に密着させてください。</p>
+                </div>
+
+                <div class="step-card fade-in">
+                    <div class="step-number">3</div>
+                    <h3>15〜20分後、マスクをはがす</h3>
+                    <p>ゆっくりとマスクをはがし、残った美容液を顔全体になじませてください。首やデコルテにも伸ばすと、より効果的です。</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px; font-size: 1.1rem; color: #666;">
+                <p><strong>おすすめの使用タイミング</strong></p>
+                <p>・週に2〜3回のスペシャルケアとして<br>
+                ・大切な日の前日に<br>
+                ・お風呂上がりのリラックスタイムに</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients-section">
+        <div class="container">
+            <h2 class="section-title">全成分</h2>
+            <div class="ingredients-text fade-in">
+                <p>水、BG、グリセリン、PEG-32、ジグリセリン、マンニトール、水溶性プラセンタエキス、サクシニルアテロコラーゲン、加水分解コラーゲン、ヒアルロン酸Na、加水分解ヒアルロン酸、加水分解エラスチン、セラミド3、ヒト遺伝子組換オリゴペプチド-1、アラントイン、酢酸トコフェロール、トレハロース、PEG-60水添ヒマシ油、トリ(カプリル酸/カプリン酸)グリセリル、フェノキシエタノール、メチルパラベン、ブチルカルバミン酸ヨウ化プロピニル</p>
+                <br>
+                <p><strong>内容量:</strong> 1枚入り</p>
+                <p><strong>製造販売元:</strong> 株式会社ティエラコスメティクス</p>
+                <p><strong>製造国:</strong> 日本</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Section -->
+    <section class="safety-section">
+        <div class="container">
+            <h2 class="section-title">MADE IN JAPAN だから、安心。</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">MoisT Mask は、日本国内の工場で製造されています。</p>
+
+            <div class="safety-grid">
+                <div class="safety-item fade-in">
+                    <div class="safety-icon">🇯🇵</div>
+                    <h3>日本製造</h3>
+                    <p>安心の国内生産</p>
+                </div>
+                <div class="safety-item fade-in">
+                    <div class="safety-icon">✅</div>
+                    <h3>厳しい品質管理</h3>
+                    <p>徹底した検査体制</p>
+                </div>
+                <div class="safety-item fade-in">
+                    <div class="safety-icon">🌿</div>
+                    <h3>肌にやさしい処方</h3>
+                    <p>敏感肌の方にも</p>
+                </div>
+                <div class="safety-item fade-in">
+                    <div class="safety-icon">🔬</div>
+                    <h3>アレルギーテスト済み</h3>
+                    <p>科学的な安全確認</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; font-size: 0.9rem; opacity: 0.8;">※すべての方にアレルギーが起きないわけではありません</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">お客様の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">使った翌朝、肌がもちもちで感動しました!乾燥が気になる季節も、これがあれば安心です。</p>
+                    <p class="testimonial-author">30代女性</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">エステ帰りのような肌になれる、お気に入りのマスクです。大切なイベント前には必ず使います。</p>
+                    <p class="testimonial-author">40代女性</p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p class="testimonial-text">日本製で安心。敏感肌の私でも使えました。美容液がたっぷりで、コスパも良いと思います。</p>
+                    <p class="testimonial-author">20代女性</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+
+            <div class="faq-item fade-in">
+                <p class="faq-question">Q1: どのくらいの頻度で使えばいいですか?</p>
+                <p class="faq-answer">週に2〜3回のご使用をおすすめしています。大切なイベントの前日や、お肌が疲れていると感じた時にぜひお使いください。毎日使用しても問題ありません。</p>
+            </div>
+
+            <div class="faq-item fade-in">
+                <p class="faq-question">Q2: 敏感肌でも使えますか?</p>
+                <p class="faq-answer">やさしい処方設計ですので、多くの方にお使いいただけます。ただし、お肌に合わない場合は使用を中止し、異常が現れた場合は皮膚科専門医にご相談ください。初めてご使用になる際は、パッチテストをおすすめします。</p>
+            </div>
+
+            <div class="faq-item fade-in">
+                <p class="faq-question">Q3: 化粧水の前に使うべきですか?後ですか?</p>
+                <p class="faq-answer">化粧水で肌を整えた後のご使用をおすすめしていますが、洗顔後すぐにお使いいただくことも可能です。マスク後は、美容液やクリームで仕上げると、さらにうるおいが持続します。</p>
+            </div>
+
+            <div class="faq-item fade-in">
+                <p class="faq-question">Q4: マスクを長時間つけていても大丈夫ですか?</p>
+                <p class="faq-answer">15〜20分を目安にご使用ください。長時間つけすぎると、逆に肌の水分が奪われる可能性があります。適切な時間でお使いいただくことをおすすめします。</p>
+            </div>
+
+            <div class="faq-item fade-in">
+                <p class="faq-question">Q5: 使用期限はありますか?</p>
+                <p class="faq-answer">未開封の状態で製造から3年間保存可能です。開封後はなるべく早めにお使いください。直射日光を避け、涼しい場所で保管してください。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <h2>あなたの肌が、変わる。</h2>
+            <p>この一枚から、はじまる。</p>
+            <p style="font-size: 1.15rem; margin-top: 30px; line-height: 2;">
+                毎日頑張っている、あなたへ。<br>
+                <br>
+                忙しい日々の中で、<br>
+                ついつい後回しにしてしまう、自分のケア。<br>
+                <br>
+                でも、たった15分。<br>
+                マスクを貼って、ゆっくり深呼吸。<br>
+                <br>
+                それだけで、肌は応えてくれます。<br>
+                それだけで、明日が少し明るくなります。<br>
+                <br>
+                <strong style="font-size: 1.3rem;">MoisT Mask で、<br>あなたの肌に、ごほうびを。</strong>
+            </p>
+            <a href="#" class="cta-button" style="margin-top: 40px; background: var(--white); color: #f5576c;">今すぐ購入する</a>
+            <div class="campaign-badge">送料無料キャンペーン実施中</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MoisT Mask. All rights reserved.</p>
+            <p>製造販売元: 株式会社ティエラコスメティクス</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                本製品のご使用に際して、お肌に合わない場合は使用を中止し、<br>
+                異常が現れた場合は皮膚科専門医等にご相談ください。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
