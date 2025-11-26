@@ -25,6 +25,7 @@
             --light-silver: #e0e0e0;
             --platinum: #e8e8e8;
             --dark-silver: #a0a0a0;
+            --metallic-silver: linear-gradient(135deg, #e8e8e8 0%, #b8b8b8 25%, #d8d8d8 50%, #a8a8a8 75%, #c8c8c8 100%);
             --text-color: #2d2d2d;
             --text-light: #6a6a6a;
             --bg-light: #f5f7fa;
@@ -68,7 +69,7 @@
             align-items: center;
             gap: 12px;
             padding: 16px 35px;
-            background: linear-gradient(135deg, var(--silver) 0%, var(--dark-silver) 100%);
+            background: var(--metallic-silver);
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
@@ -172,8 +173,8 @@
 
         .hero-divider {
             width: 60px;
-            height: 1px;
-            background: var(--silver);
+            height: 2px;
+            background: var(--metallic-silver);
             margin: 30px auto;
         }
 
@@ -182,7 +183,7 @@
             align-items: center;
             gap: 12px;
             padding: 18px 45px;
-            background: linear-gradient(135deg, var(--silver) 0%, var(--dark-silver) 100%);
+            background: var(--metallic-silver);
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
@@ -245,8 +246,8 @@
 
         .section-divider {
             width: 50px;
-            height: 1px;
-            background: var(--silver);
+            height: 2px;
+            background: var(--metallic-silver);
             margin: 15px auto 50px;
         }
 
@@ -330,7 +331,10 @@
         .benefit-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: var(--silver);
+            background: var(--metallic-silver);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .benefit-card h3 {
@@ -434,7 +438,7 @@
         .step-number {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--silver), var(--dark-silver));
+            background: var(--metallic-silver);
             color: var(--white);
             border-radius: 50%;
             display: flex;
@@ -510,7 +514,10 @@
         .safety-icon {
             font-size: 3rem;
             margin-bottom: 18px;
-            color: var(--silver);
+            background: var(--metallic-silver);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .safety-item h3 {
@@ -623,7 +630,7 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, var(--silver) 0%, var(--dark-silver) 100%);
+            background: var(--metallic-silver);
             color: var(--white);
             text-align: center;
             padding: 100px 0;
