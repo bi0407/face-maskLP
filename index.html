@@ -725,32 +725,62 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero {
+                min-height: 90vh;
+                padding: 60px 0;
+            }
+
             .hero h1 {
-                font-size: 2.8rem;
-                letter-spacing: 4px;
+                font-size: 2.5rem;
+                letter-spacing: 3px;
             }
 
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-tagline {
+                font-size: 0.9rem;
+            }
+
+            .medical-badge {
+                font-size: 0.8rem;
+                padding: 6px 20px;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                line-height: 1.4;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
             }
 
             .cta-button {
-                padding: 16px 40px;
+                padding: 15px 35px;
                 font-size: 1rem;
+                letter-spacing: 1px;
+            }
+
+            .cta-button i {
+                font-size: 1.1rem;
             }
 
             .fixed-cta {
-                bottom: 20px;
-                right: 20px;
+                bottom: 15px;
+                right: 15px;
             }
 
             .fixed-cta-button {
-                padding: 14px 28px;
-                font-size: 0.95rem;
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                gap: 8px;
             }
 
             .benefits-grid,
@@ -758,14 +788,128 @@
             .safety-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .benefit-card,
+            .step-card,
+            .safety-item {
+                padding: 35px 25px;
+            }
+
+            .benefit-icon,
+            .safety-icon {
+                font-size: 2.5rem;
+            }
+
+            .step-number {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+            }
+
+            .reason-item {
+                padding: 30px 25px;
+            }
+
+            .reason-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .reason-item h4 {
+                font-size: 1.2rem;
+            }
+
+            .faq-item {
+                padding: 25px 20px;
+            }
+
+            .faq-question {
+                font-size: 1.1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.95rem;
+            }
+
+            .testimonial-card {
+                padding: 30px 25px;
+            }
+
+            .problem-text {
+                font-size: 1.05rem;
+            }
+
+            .highlight {
+                font-size: 1.15rem;
+                padding: 20px;
+            }
+
+            .ingredients-text {
+                padding: 30px 25px;
+                font-size: 0.95rem;
             }
 
             .cta-section h2 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+
+            .medical-supervision p {
+                font-size: 0.95rem;
+            }
+
+            .medical-supervision .clinic-name {
+                font-size: 1.1rem;
             }
 
             section {
-                padding: 70px 0;
+                padding: 60px 0;
+            }
+
+            footer {
+                padding: 40px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 0.95rem;
+            }
+
+            .fixed-cta-button {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+
+            .benefit-card h3,
+            .safety-item h3 {
+                font-size: 1.15rem;
+            }
+
+            .step-card h3 {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 50px 0;
             }
         }
 
