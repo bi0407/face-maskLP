@@ -17,18 +17,19 @@
         }
 
         :root {
-            --primary-color: #2d2d2d;
-            --secondary-color: #4a4a4a;
+            --primary-color: #1e3a5f;
+            --secondary-color: #2c5f7f;
+            --navy: #1a2f4a;
+            --dark-blue: #2b4a6f;
             --silver: #c0c0c0;
             --light-silver: #e0e0e0;
             --platinum: #e8e8e8;
             --dark-silver: #a0a0a0;
-            --accent-blue: #5a7a9a;
             --text-color: #2d2d2d;
             --text-light: #6a6a6a;
-            --bg-light: #f8f8f8;
+            --bg-light: #f5f7fa;
             --white: #ffffff;
-            --cream: #fafafa;
+            --cream: #f0f4f8;
         }
 
         body {
@@ -87,38 +88,17 @@
             font-size: 1.2rem;
         }
 
-        /* Top Bar */
-        .top-bar {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 10px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            font-weight: 300;
-        }
-
-        .top-bar-badge {
-            display: inline-block;
-            padding: 3px 12px;
-            background: var(--silver);
-            border-radius: 15px;
-            margin-right: 12px;
-            font-weight: 500;
-            font-size: 0.8rem;
-            color: var(--primary-color);
-        }
 
         /* Hero Section */
         .hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a8a8a8 100%);
+            background: linear-gradient(135deg, #1a2f4a 0%, #2c5f7f 50%, #4a7ba7 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--primary-color);
+            color: var(--white);
             overflow: hidden;
         }
 
@@ -129,7 +109,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            background: radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.15) 0%, transparent 70%);
         }
 
         .hero-content {
@@ -153,22 +133,23 @@
         .medical-badge {
             display: inline-block;
             padding: 8px 25px;
-            border: 1.5px solid var(--primary-color);
+            border: 1.5px solid var(--silver);
             border-radius: 30px;
             font-size: 0.9rem;
             letter-spacing: 1.5px;
             margin-bottom: 30px;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             font-weight: 400;
+            color: var(--white);
         }
 
         .hero h1 {
             font-size: 4.5rem;
-            font-weight: 200;
+            font-weight: 400;
             margin-bottom: 25px;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 8px;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 6px;
             line-height: 1.2;
         }
 
@@ -192,24 +173,30 @@
         .hero-divider {
             width: 60px;
             height: 1px;
-            background: var(--primary-color);
+            background: var(--silver);
             margin: 30px auto;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 18px 55px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 45px;
+            background: linear-gradient(135deg, var(--silver) 0%, var(--dark-silver) 100%);
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 500;
             font-size: 1.1rem;
             transition: all 0.4s ease;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
             letter-spacing: 1.5px;
             position: relative;
             overflow: hidden;
+        }
+
+        .cta-button i {
+            font-size: 1.3rem;
         }
 
         .cta-button::before {
@@ -692,19 +679,6 @@
             background: var(--secondary-color);
         }
 
-        .campaign-badge {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            color: var(--white);
-            padding: 12px 40px;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 1rem;
-            display: inline-block;
-            margin-top: 35px;
-            border: 1.5px solid rgba(255,255,255,0.25);
-            letter-spacing: 1px;
-        }
 
         /* Footer */
         footer {
@@ -814,12 +788,6 @@
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <span class="top-bar-badge">医療機関監修</span>
-        送料無料キャンペーン実施中
-    </div>
-
     <!-- Fixed CTA Button -->
     <div class="fixed-cta" id="fixedCta">
         <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="fixed-cta-button">
@@ -836,7 +804,10 @@
             <div class="hero-divider"></div>
             <p class="hero-subtitle">うるおいで、未来を変える。</p>
             <p class="hero-tagline">Daily skin relief with gentle hydration<br>EGF × プラセンタ × セラミド配合</p>
-            <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="cta-button">購入はこちら</a>
+            <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="cta-button">
+                <i class="bi bi-instagram"></i>
+                購入はこちら
+            </a>
         </div>
     </section>
 
@@ -1113,8 +1084,10 @@
                 <br>
                 <strong style="font-size: 1.3rem; font-weight: 400;">MoisT Mask で、<br>あなたの肌に、ごほうびを。</strong>
             </p>
-            <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 45px;">Instagramで購入する</a>
-            <div class="campaign-badge">送料無料キャンペーン実施中</div>
+            <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="cta-button" style="margin-top: 45px;">
+                <i class="bi bi-instagram"></i>
+                購入はこちら
+            </a>
         </div>
     </section>
 
