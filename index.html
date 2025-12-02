@@ -898,61 +898,86 @@
         /* Responsive */
         @media (max-width: 768px) {
             .container {
-                padding: 0 20px;
+                padding: 0 16px;
             }
 
             .hero {
-                min-height: 90vh;
-                padding: 60px 0;
+                min-height: 100vh;
+                min-height: 100dvh;
+                padding: 40px 0;
+            }
+
+            .hero-content {
+                padding: 0 10px;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-                letter-spacing: 3px;
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+                margin-bottom: 15px;
             }
 
             .hero-subtitle {
                 font-size: 1rem;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
+                margin-bottom: 15px;
             }
 
             .hero-tagline {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
+                line-height: 1.8;
+                margin-bottom: 30px;
             }
 
             .medical-badge {
-                font-size: 0.8rem;
-                padding: 6px 20px;
+                font-size: 0.75rem;
+                padding: 6px 16px;
+                margin-bottom: 20px;
             }
 
             .section-title {
-                font-size: 1.8rem;
-                line-height: 1.4;
+                font-size: 1.2rem;
+                line-height: 1.6;
+                padding: 0 15px;
             }
 
             .section-subtitle {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+
+            .section-divider {
+                margin: 12px auto 40px;
             }
 
             .cta-button {
-                padding: 15px 35px;
-                font-size: 1rem;
-                letter-spacing: 1px;
+                padding: 14px 28px;
+                font-size: 0.95rem;
+                letter-spacing: 0.5px;
             }
 
             .cta-button i {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
+            /* Fixed CTA - 画面下部に固定バナー */
             .fixed-cta {
-                bottom: 15px;
-                right: 15px;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                padding: 12px 16px;
+                background: rgba(255,255,255,0.95);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 -2px 20px rgba(0,0,0,0.1);
             }
 
             .fixed-cta-button {
-                padding: 12px 24px;
-                font-size: 0.9rem;
-                gap: 8px;
+                width: 100%;
+                justify-content: center;
+                padding: 14px 20px;
+                font-size: 0.95rem;
+                gap: 10px;
+                border-radius: 8px;
             }
 
             .benefits-grid,
@@ -960,128 +985,221 @@
             .safety-grid,
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
+                gap: 20px;
             }
 
             .benefit-card,
             .step-card,
             .safety-item {
-                padding: 35px 25px;
+                padding: 30px 20px;
+            }
+
+            .benefit-card h3 {
+                font-size: 1.1rem;
+                line-height: 1.5;
+            }
+
+            .benefit-card p {
+                font-size: 0.9rem;
             }
 
             .benefit-icon,
             .safety-icon {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-bottom: 15px;
             }
 
             .step-number {
-                width: 70px;
-                height: 70px;
-                font-size: 2rem;
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+                margin-bottom: 20px;
+            }
+
+            .step-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .step-card p {
+                font-size: 0.9rem;
             }
 
             .reason-item {
-                padding: 30px 25px;
+                padding: 25px 20px;
+                margin-bottom: 20px;
             }
 
             .reason-item h3 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+                margin-bottom: 15px;
             }
 
             .reason-item h4 {
-                font-size: 1.2rem;
-            }
-
-            .faq-item {
-                padding: 25px 20px;
-            }
-
-            .faq-question {
-                font-size: 1.1rem;
-            }
-
-            .faq-answer {
-                font-size: 0.95rem;
-            }
-
-            .testimonial-card {
-                padding: 30px 25px;
-            }
-
-            .problem-text {
-                font-size: 1.05rem;
-            }
-
-            .highlight {
-                font-size: 1.15rem;
-                padding: 20px;
-            }
-
-            .ingredients-text {
-                padding: 30px 25px;
-                font-size: 0.95rem;
-            }
-
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-
-            .cta-section p {
                 font-size: 1rem;
             }
 
-            .medical-supervision p {
-                font-size: 0.95rem;
+            .reason-item p {
+                font-size: 0.9rem;
+                line-height: 1.8;
             }
 
-            .medical-supervision .clinic-name {
-                font-size: 1.1rem;
+            .faq-item {
+                padding: 20px 16px;
+                margin-bottom: 15px;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+                line-height: 1.8;
+            }
+
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+
+            .testimonial-text {
+                font-size: 0.9rem;
+            }
+
+            .problem-text {
+                font-size: 0.95rem;
+                line-height: 2;
+            }
+
+            .problem-text p {
+                margin-bottom: 20px;
+            }
+
+            .highlight {
+                font-size: 1rem;
+                padding: 18px 15px;
+                margin: 30px 0;
+            }
+
+            .ingredients-text {
+                padding: 25px 20px;
+                font-size: 0.85rem;
+            }
+
+            .cta-section {
+                padding: 60px 0 100px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.6rem;
+                line-height: 1.4;
+            }
+
+            .cta-section p {
+                font-size: 0.9rem;
+                line-height: 1.9;
+            }
+
+            .medical-supervision {
+                padding: 20px 15px;
+            }
+
+            .medical-supervision p {
+                font-size: 0.9rem;
+                line-height: 1.7;
+            }
+
+            .safety-item h3 {
+                font-size: 1rem;
+            }
+
+            .safety-item p {
+                font-size: 0.85rem;
             }
 
             section {
-                padding: 60px 0;
+                padding: 50px 0;
             }
 
             footer {
-                padding: 40px 0;
+                padding: 40px 0 100px;
+            }
+
+            footer p {
+                font-size: 0.85rem;
+            }
+
+            /* アニメーション軽減 */
+            .hero-content::before,
+            .hero-content::after,
+            .hero::after {
+                display: none;
+            }
+
+            .cta-button {
+                animation: none;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
-                letter-spacing: 2px;
+                font-size: 1.9rem;
+                letter-spacing: 1px;
             }
 
             .hero-subtitle {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.8rem;
             }
 
             .section-title {
-                font-size: 1.6rem;
+                font-size: 1.1rem;
             }
 
             .cta-button {
-                padding: 14px 30px;
-                font-size: 0.95rem;
-            }
-
-            .fixed-cta-button {
-                padding: 10px 20px;
-                font-size: 0.85rem;
+                padding: 12px 24px;
+                font-size: 0.9rem;
             }
 
             .benefit-card h3,
             .safety-item h3 {
-                font-size: 1.15rem;
+                font-size: 1rem;
             }
 
             .step-card h3 {
-                font-size: 1.2rem;
+                font-size: 1rem;
+            }
+
+            .reason-item h3 {
+                font-size: 1.1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.4rem;
             }
 
             section {
-                padding: 50px 0;
+                padding: 40px 0;
+            }
+        }
+
+        /* Safe area対応（ノッチ付きiPhone等） */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .fixed-cta {
+                padding-bottom: calc(12px + env(safe-area-inset-bottom));
+            }
+
+            footer {
+                padding-bottom: calc(40px + env(safe-area-inset-bottom));
+            }
+
+            @media (max-width: 768px) {
+                footer {
+                    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+                }
             }
         }
 
@@ -1206,7 +1324,7 @@
     <!-- Problem Section -->
     <section class="problem-section">
         <div class="container">
-            <h2 class="section-title">年齢とともに変化する肌。<br>こんなお悩み、ありませんか?</h2>
+            <h2 class="section-title">年齢とともに変化する肌。こんなお悩み、ありませんか?</h2>
             <div class="section-divider"></div>
             <div class="problem-text fade-in">
                 <p>朝、鏡を見るたびに感じる肌の変化。</p>
@@ -1230,7 +1348,7 @@
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="section-title">このマスクを使い続けると、<br>こんな変化を感じていただけます</h2>
+            <h2 class="section-title">このマスクを使い続けると、こんな変化を感じていただけます</h2>
             <div class="section-divider"></div>
             <p class="section-subtitle" style="margin-top: -50px; margin-bottom: 60px;">※効果には個人差があります</p>
             <div class="benefits-grid">
