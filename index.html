@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MoisT Mask - 皮膚科専門医監修。谷村皮フ科オリジナル。EGF・プラセンタ・セラミド配合の日本製フェイスマスク。">
-    <title>MoisT Mask - うるおいで、未来を変える。｜谷村皮フ科オリジナル</title>
+    <meta name="description" content="MoisT Mask - 皮膚科専門医監修。EGF・プラセンタ・セラミド配合の日本製フェイスマスク。">
+    <title>MoisT Mask - うるおいで、未来を変える。</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600&family=Inter:wght@200;300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -17,10 +17,10 @@
         }
 
         :root {
-            --primary-color: #1e3a5f;
-            --secondary-color: #2c5f7f;
-            --navy: #1a2f4a;
-            --dark-blue: #2b4a6f;
+            --primary-color: #1d3c7d;
+            --secondary-color: #2a5298;
+            --navy: #152c5a;
+            --dark-blue: #1d3c7d;
             --silver: #c0c0c0;
             --light-silver: #e0e0e0;
             --platinum: #e8e8e8;
@@ -69,20 +69,40 @@
             align-items: center;
             gap: 12px;
             padding: 16px 35px;
-            background: var(--metallic-silver);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 500;
             font-size: 1rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(29, 60, 125, 0.3);
+            transition: all 0.4s ease;
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fixed-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .fixed-cta-button:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .fixed-cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 45px rgba(29, 60, 125, 0.4);
         }
 
         .fixed-cta-icon {
@@ -94,7 +114,7 @@
         .hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a2f4a 0%, #2c5f7f 50%, #4a7ba7 100%);
+            background: linear-gradient(135deg, #152c5a 0%, #1d3c7d 50%, #3a5a9c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -131,6 +151,71 @@
             }
         }
 
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
         .medical-badge {
             display: inline-block;
             padding: 8px 25px;
@@ -143,6 +228,7 @@
             backdrop-filter: blur(10px);
             font-weight: 400;
             color: var(--white);
+            animation: float 4s ease-in-out infinite;
         }
 
         .hero h1 {
@@ -174,8 +260,33 @@
         .hero-divider {
             width: 60px;
             height: 2px;
-            background: var(--metallic-silver);
+            background: linear-gradient(90deg, transparent, var(--white), transparent);
             margin: 30px auto;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-divider::before,
+        .hero-divider::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--white);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero-divider::before {
+            left: -15px;
+            animation-delay: 0.2s;
+        }
+
+        .hero-divider::after {
+            right: -15px;
+            animation-delay: 0.4s;
         }
 
         .cta-button {
@@ -194,6 +305,7 @@
             letter-spacing: 1.5px;
             position: relative;
             overflow: hidden;
+            animation: pulse 3s ease-in-out infinite;
         }
 
         .cta-button i {
@@ -300,11 +412,15 @@
             background: var(--white);
             padding: 45px 35px;
             border-radius: 8px;
-            transition: all 0.4s ease;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             text-align: center;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--platinum);
+        }
+
+        .benefit-card.visible {
+            animation: scaleIn 0.6s ease-out forwards;
         }
 
         .benefit-card::before {
@@ -331,8 +447,14 @@
         .benefit-icon {
             font-size: 3rem;
             margin-bottom: 20px;
-            color: #b8b8b8;
-            filter: drop-shadow(0 2px 4px rgba(184, 184, 184, 0.3));
+            color: var(--primary-color);
+            filter: drop-shadow(0 2px 4px rgba(29, 60, 125, 0.3));
+            transition: transform 0.4s ease, color 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--secondary-color);
         }
 
         .benefit-card h3 {
@@ -375,12 +497,31 @@
             margin-bottom: 35px;
             border-radius: 8px;
             border-left: 3px solid var(--silver);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
         }
 
         .reason-item:hover {
-            background: rgba(255,255,255,0.06);
-            transform: translateX(10px);
+            background: rgba(255,255,255,0.08);
+            transform: translateX(15px);
+            border-left-width: 5px;
+        }
+
+        .reason-item:hover::after {
+            transform: translateX(100%);
         }
 
         .reason-item h3 {
@@ -436,7 +577,9 @@
         .step-number {
             width: 80px;
             height: 80px;
-            background: var(--metallic-silver);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-size: 200% 200%;
+            animation: gradientFlow 3s ease infinite;
             color: var(--white);
             border-radius: 50%;
             display: flex;
@@ -445,8 +588,14 @@
             font-size: 2.2rem;
             font-weight: 200;
             margin: 0 auto 25px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 5px 20px rgba(29, 60, 125, 0.3);
             font-family: 'Inter', sans-serif;
+            transition: transform 0.4s ease;
+        }
+
+        .step-card:hover .step-number {
+            transform: scale(1.1) rotate(360deg);
+            transition: transform 0.6s ease;
         }
 
         .step-card h3 {
@@ -512,8 +661,14 @@
         .safety-icon {
             font-size: 3rem;
             margin-bottom: 18px;
-            color: #b8b8b8;
-            filter: drop-shadow(0 2px 4px rgba(184, 184, 184, 0.3));
+            color: var(--primary-color);
+            filter: drop-shadow(0 2px 4px rgba(29, 60, 125, 0.3));
+            transition: transform 0.4s ease;
+        }
+
+        .safety-item:hover .safety-icon {
+            transform: scale(1.2);
+            animation: float 2s ease-in-out infinite;
         }
 
         .safety-item h3 {
@@ -539,14 +694,34 @@
             padding: 35px;
             margin-bottom: 20px;
             border-radius: 8px;
-            border-left: 3px solid var(--silver);
-            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid var(--platinum);
-            border-left-width: 3px;
+            border-left-width: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        .faq-item:hover::before {
+            transform: scaleY(1);
         }
 
         .faq-item:hover {
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 35px rgba(29, 60, 125, 0.1);
+            transform: translateX(8px);
+            border-left-color: transparent;
         }
 
         .faq-question {
@@ -588,12 +763,14 @@
             border-radius: 8px;
             position: relative;
             border: 1px solid rgba(192, 192, 192, 0.2);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .testimonial-card:hover {
-            background: rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.08);
             border-color: var(--silver);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .testimonial-card::before {
@@ -626,7 +803,9 @@
 
         /* CTA Section */
         .cta-section {
-            background: var(--metallic-silver);
+            background: linear-gradient(-45deg, #e8e8e8, #d0d0d0, #c8c8c8, #e0e0e0);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
             color: var(--primary-color);
             text-align: center;
             padding: 100px 0;
@@ -641,8 +820,20 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 30s linear infinite;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 4s ease-in-out infinite;
+            background-size: 200% 100%;
         }
 
         @keyframes rotate {
@@ -934,6 +1125,75 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Staggered Animation */
+        .fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .fade-in:nth-child(3) { transition-delay: 0.3s; }
+        .fade-in:nth-child(4) { transition-delay: 0.4s; }
+        .fade-in:nth-child(5) { transition-delay: 0.5s; }
+
+        /* Parallax Background Effect */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255,255,255,0.1) 0%, transparent 30%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 25%);
+            animation: float 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        /* Floating Particles Effect */
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -50px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-content::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            bottom: -30px;
+            left: -80px;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        /* Interactive Hover Effects */
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+        }
+
+        section:hover .section-title::after {
+            width: 100px;
+        }
     </style>
 </head>
 <body>
@@ -948,7 +1208,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="medical-badge">皮膚科専門医監修 | 谷村皮フ科オリジナル</div>
+            <div class="medical-badge">皮膚科専門医監修</div>
             <h1>MoisT Mask</h1>
             <div class="hero-divider"></div>
             <p class="hero-subtitle">うるおいで、未来を変える。</p>
@@ -963,7 +1223,7 @@
     <!-- Medical Supervision Section -->
     <div class="medical-supervision">
         <p>
-            <span class="clinic-name">谷村皮フ科</span> 皮膚科専門医監修のもと、<br>
+            皮膚科専門医監修のもと、<br>
             品質にこだわった化粧品をお届けします。
         </p>
     </div>
@@ -1066,7 +1326,7 @@
 
             <div class="reason-item fade-in">
                 <h3>理由5: 皮膚科専門医監修 × MADE IN JAPAN</h3>
-                <p><strong>谷村皮フ科の皮膚科専門医監修</strong>のもと、成分選定から品質管理まで、こだわり抜きました。</p>
+                <p><strong>皮膚科専門医監修</strong>のもと、成分選定から品質管理まで、こだわり抜きました。</p>
                 <p><strong>日本国内で製造</strong>された、高品質フェイスマスク。</p>
                 <p>一枚一枚、丁寧に作られています。</p>
                 <p>大切なお肌に使うものだから、安心・安全を追求しました。</p>
@@ -1120,7 +1380,7 @@
                 <br><br>
                 <p><strong>内容量:</strong> 1枚入り</p>
                 <p><strong>製造販売元:</strong> 株式会社ティエラコスメティクス</p>
-                <p><strong>監修:</strong> 谷村皮フ科</p>
+                <p><strong>監修:</strong> 皮膚科専門医</p>
                 <p><strong>製造国:</strong> 日本</p>
             </div>
         </div>
@@ -1131,7 +1391,7 @@
         <div class="container">
             <h2 class="section-title">医療機関監修だから、安心。</h2>
             <div class="section-divider"></div>
-            <p class="section-subtitle">谷村皮フ科の皮膚科専門医が監修。日本国内で製造されています。</p>
+            <p class="section-subtitle">皮膚科専門医が監修。日本国内で製造されています。</p>
 
             <div class="safety-grid">
                 <div class="safety-item fade-in">
@@ -1172,11 +1432,11 @@
             <div class="section-divider"></div>
             <div class="testimonials-grid">
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">使った翌朝、肌がしっとりしていて嬉しいです。乾燥が気になる季節も、これがあれば安心です。皮膚科専門医監修というのも信頼できます。</p>
+                    <p class="testimonial-text">使った翌朝、肌がしっとりしていて嬉しいです。乾燥が気になる季節も、これがあれば安心です。</p>
                     <p class="testimonial-author">30代女性</p>
                 </div>
                 <div class="testimonial-card fade-in">
-                    <p class="testimonial-text">うるおいを感じられる、お気に入りのマスクです。大切なイベント前には使っています。谷村皮フ科さんのオリジナルなので安心感があります。</p>
+                    <p class="testimonial-text">うるおいを感じられる、お気に入りのマスクです。大切なイベント前には使っています。</p>
                     <p class="testimonial-author">40代女性</p>
                 </div>
                 <div class="testimonial-card fade-in">
@@ -1252,7 +1512,6 @@
         <div class="container">
             <p style="font-size: 1.05rem; font-weight: 400; color: var(--silver);">MoisT Mask</p>
             <div class="footer-divider"></div>
-            <p>監修: 谷村皮フ科</p>
             <p>製造販売元: 株式会社ティエラコスメティクス</p>
             <p style="margin-top: 25px; font-size: 0.85rem; opacity: 0.65;">
                 【使用上のご注意】お肌に異常が生じていないかよく注意してご使用ください。<br>
