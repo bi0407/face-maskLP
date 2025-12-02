@@ -133,11 +133,40 @@
             background: radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.15) 0%, transparent 70%);
         }
 
+        .hero-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            max-width: 1200px;
+            padding: 0 30px;
+            position: relative;
+            z-index: 1;
+        }
+
         .hero-content {
             position: relative;
             z-index: 1;
             animation: fadeInUp 1.2s ease-out;
-            max-width: 900px;
+            max-width: 550px;
+            text-align: left;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+            animation: fadeInUp 1.2s ease-out 0.3s both;
+        }
+
+        .hero-image img {
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03) rotate(1deg);
         }
 
         @keyframes fadeInUp {
@@ -899,8 +928,25 @@
                 padding: 40px 0;
             }
 
+            .hero-wrapper {
+                flex-direction: column;
+                gap: 40px;
+                padding: 0 20px;
+            }
+
             .hero-content {
                 padding: 0 10px;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image img {
+                max-width: 280px;
+                border-radius: 15px;
             }
 
             .hero h1 {
@@ -1304,15 +1350,20 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="medical-badge">皮膚科専門医監修</div>
-            <h1>MoisT Mask</h1>
-            <p class="hero-subtitle">うるおいで、未来を変える。</p>
-            <p class="hero-tagline">Daily skin relief with gentle hydration<br>EGF × プラセンタ × セラミド配合</p>
-            <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="cta-button">
-                <i class="bi bi-instagram"></i>
-                購入はこちら
-            </a>
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <div class="medical-badge">皮膚科専門医監修</div>
+                <h1>MoisT Mask</h1>
+                <p class="hero-subtitle">うるおいで、未来を変える。</p>
+                <p class="hero-tagline">Daily skin relief with gentle hydration<br>EGF × プラセンタ × セラミド配合</p>
+                <a href="https://www.instagram.com/tanimurahifuka?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="cta-button">
+                    <i class="bi bi-instagram"></i>
+                    購入はこちら
+                </a>
+            </div>
+            <div class="hero-image">
+                <img src="product-image.png" alt="MoisT Mask フェイスマスク">
+            </div>
         </div>
     </section>
 
