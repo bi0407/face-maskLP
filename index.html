@@ -114,7 +114,6 @@
         .hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, #152c5a 0%, #1d3c7d 50%, #3a5a9c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -123,21 +122,37 @@
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.15) 0%, transparent 70%);
+            background: linear-gradient(
+                to bottom,
+                rgba(21, 44, 90, 0.7) 0%,
+                rgba(29, 60, 125, 0.6) 50%,
+                rgba(21, 44, 90, 0.8) 100%
+            );
+            z-index: 1;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             animation: fadeInUp 1.2s ease-out;
             max-width: 900px;
+            padding: 0 30px;
         }
 
         @keyframes fadeInUp {
@@ -900,7 +915,11 @@
             }
 
             .hero-content {
-                padding: 0 10px;
+                padding: 0 20px;
+            }
+
+            .hero-video {
+                object-position: center center;
             }
 
             .hero h1 {
@@ -1304,6 +1323,11 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="hero-video.mov" type="video/quicktime">
+            <source src="hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="medical-badge">皮膚科専門医監修</div>
             <h1>MoisT Mask</h1>
