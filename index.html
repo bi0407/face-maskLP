@@ -1195,6 +1195,17 @@
             }
         }
 
+        /* モバイル専用改行 */
+        .br-mobile {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .br-mobile {
+                display: block;
+            }
+        }
+
         /* Smooth Scroll */
         html {
             scroll-behavior: smooth;
@@ -1326,7 +1337,7 @@
                 なかなか満足できる肌に近づけない――</p>
                 <p>そんなお悩み、お持ちではありませんか?</p>
                 <p><br>いつまでも美しい肌でいたい。<br>そんなあなたへ。<br><br></p>
-                <div class="highlight">MoisT Mask は、毎日のスキンケアをサポートする<br>フェイスマスクです。</div>
+                <div class="highlight">MoisT Mask は、<span class="br-mobile"><br></span>毎日のスキンケアをサポートする<span class="br-mobile"><br></span>フェイスマスクです。</div>
                 <p>美容研究で注目される「EGF」。<br>
                 美容業界で信頼され続ける「プラセンタ」。<br>
                 そして、うるおいを守る「セラミド3」。</p>
@@ -1340,7 +1351,7 @@
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="container">
-            <h2 class="section-title">使い続けると、こんな変化を感じていただけます</h2>
+            <h2 class="section-title">使い続けると、<span class="br-mobile"><br></span>こんな変化を感じていただけます</h2>
             <div class="section-divider"></div>
             <p class="section-subtitle" style="margin-top: -50px; margin-bottom: 60px;">※効果には個人差があります</p>
             <div class="benefits-grid">
