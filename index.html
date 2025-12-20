@@ -357,6 +357,11 @@
             font-weight: 300;
         }
 
+        .section-subtitle.benefits-note {
+            margin-top: 10px;
+            margin-bottom: 60px;
+        }
+
         .section-divider {
             display: none;
         }
@@ -528,6 +533,30 @@
             margin-bottom: 20px;
             font-weight: 400;
             letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .reason-icon {
+            font-size: 2.2rem;
+            color: var(--silver);
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            border: 1px solid rgba(192, 192, 192, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .reason-item:hover .reason-icon {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.1);
+            border-color: var(--silver);
         }
 
         .reason-item h4 {
@@ -552,7 +581,7 @@
 
         .steps-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmin(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 45px;
             margin-top: 70px;
         }
@@ -969,6 +998,11 @@
                 padding: 0 10px;
             }
 
+            .section-subtitle.benefits-note {
+                margin-top: 5px;
+                margin-bottom: 40px;
+            }
+
             .section-divider {
                 margin: 12px auto 40px;
             }
@@ -1053,8 +1087,15 @@
             }
 
             .reason-item h3 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 margin-bottom: 15px;
+                gap: 12px;
+            }
+
+            .reason-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
             }
 
             .reason-item h4 {
@@ -1389,7 +1430,7 @@
         <div class="container">
             <h2 class="section-title">使い続けると、<span class="br-mobile"><br></span>こんな変化を感じていただけます</h2>
             <div class="section-divider"></div>
-            <p class="section-subtitle" style="margin-top: -50px; margin-bottom: 60px;">※効果には個人差があります</p>
+            <p class="section-subtitle benefits-note">※効果には個人差があります</p>
             <div class="benefits-grid">
                 <div class="benefit-card fade-in">
                     <i class="bi bi-stars benefit-icon"></i>
@@ -1428,14 +1469,14 @@
             <p class="section-subtitle">5つのこだわり</p>
 
             <div class="reason-item fade-in">
-                <h3>理由1: 美容研究で注目「EGF」配合</h3>
+                <h3><span class="reason-icon"><i class="bi bi-award"></i></span>理由1: 美容研究で注目「EGF」配合</h3>
                 <p><strong>EGF(ヒト遺伝子組換オリゴペプチド-1)</strong>は、ノーベル賞受賞の研究から着目された、エイジングケア※成分。</p>
                 <p>うるおいを与え、ハリ・弾力のある肌を目指します。</p>
                 <p style="font-size: 0.9rem; opacity: 0.8;">※年齢に応じたケア</p>
             </div>
 
             <div class="reason-item fade-in">
-                <h3>理由2: 厳選された保湿成分</h3>
+                <h3><span class="reason-icon"><i class="bi bi-droplet-half"></i></span>理由2: 厳選された保湿成分</h3>
                 <h4>プラセンタエキス × コラーゲン × ヒアルロン酸</h4>
                 <p><strong>・プラセンタエキス:</strong> 肌を整え、ハリ・ツヤをサポート</p>
                 <p><strong>・コラーゲン:</strong> 肌にうるおいを与え、ふっくらとした印象に</p>
@@ -1444,20 +1485,20 @@
             </div>
 
             <div class="reason-item fade-in">
-                <h3>理由3: セラミド3で肌を守る</h3>
+                <h3><span class="reason-icon"><i class="bi bi-shield-check"></i></span>理由3: セラミド3で肌を守る</h3>
                 <p><strong>セラミド3</strong>は、肌のうるおいを保つ重要な成分。</p>
                 <p>乾燥や外部刺激から肌を守り、うるおいを逃がさずキープします。</p>
                 <p>敏感に傾きがちな肌にも、やさしくアプローチ。</p>
             </div>
 
             <div class="reason-item fade-in">
-                <h3>理由4: 肌を整える「アラントイン」配合</h3>
+                <h3><span class="reason-icon"><i class="bi bi-heart-pulse"></i></span>理由4: 肌を整える「アラントイン」配合</h3>
                 <p><strong>アラントイン</strong>は、肌のコンディションを整え、すこやかな肌環境をサポートする成分。</p>
                 <p>ゆらぎやすい季節も、快適にお使いいただけます。</p>
             </div>
 
             <div class="reason-item fade-in">
-                <h3>理由5: 皮膚科専門医監修 × MADE IN JAPAN</h3>
+                <h3><span class="reason-icon"><i class="bi bi-hospital"></i></span>理由5: 皮膚科専門医監修 × MADE IN JAPAN</h3>
                 <p><strong>皮膚科専門医監修</strong>のもと、成分選定から品質管理まで、こだわり抜きました。</p>
                 <p><strong>日本国内で製造</strong>された、高品質フェイスマスク。</p>
                 <p>一枚一枚、丁寧に作られています。</p>
