@@ -404,6 +404,14 @@
             background: var(--bg-light);
         }
 
+        .benefits-section .section-title::after {
+            display: none;
+        }
+
+        .benefits-section:hover .section-title::after {
+            width: 0;
+        }
+
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -487,6 +495,11 @@
 
         .reasons-section .section-subtitle {
             color: rgba(255,255,255,0.7);
+            text-align: left;
+        }
+
+        .howto-section .section-subtitle {
+            text-align: left;
         }
 
         .reasons-section .section-divider {
@@ -1462,6 +1475,11 @@
                     <h3>鏡を見るのが楽しみになる。</h3>
                     <p>「肌の調子、いいね」<br>そう言われる日が増える。</p>
                 </div>
+                <div class="benefit-card fade-in">
+                    <i class="bi bi-moon-stars benefit-icon"></i>
+                    <h3>至福のリラックスタイム。</h3>
+                    <p>15分のマスク時間が、<br>自分へのごほうびに。</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1471,7 +1489,7 @@
         <div class="container">
             <h2 class="section-title">このマスクが選ばれる理由</h2>
             <div class="section-divider"></div>
-            <p class="section-subtitle">5つのこだわり</p>
+            <p class="section-subtitle">6つのこだわり</p>
 
             <div class="reason-item fade-in">
                 <h3><span class="reason-icon"><i class="bi bi-droplet-fill"></i></span>理由1: 話題の美容成分「水溶性プロテオグリカン」配合</h3>
@@ -1508,7 +1526,14 @@
             </div>
 
             <div class="reason-item fade-in">
-                <h3><span class="reason-icon"><i class="bi bi-hospital"></i></span>理由5: 皮膚科専門医監修 × MADE IN JAPAN</h3>
+                <h3><span class="reason-icon"><i class="bi bi-flower2"></i></span>理由5: 九州産「サクラン」で驚きの保水力</h3>
+                <p><strong>スイゼンジノリ多糖体（サクラン）</strong>は、九州の限られた地域でしか採れない希少な天然素材。</p>
+                <p>ヒアルロン酸の約5倍の保水力を持ち、「奇跡の保湿成分」として注目されています。</p>
+                <p>肌にたっぷりのうるおいを与え、しっとりとした肌触りを持続させます。</p>
+            </div>
+
+            <div class="reason-item fade-in">
+                <h3><span class="reason-icon"><i class="bi bi-hospital"></i></span>理由6: 皮膚科専門医監修 × MADE IN JAPAN</h3>
                 <p><strong>皮膚科専門医監修</strong>のもと、成分選定から品質管理まで、こだわり抜きました。</p>
                 <p><strong>日本国内で製造</strong>された、高品質フェイスマスク。</p>
                 <p>一枚一枚、丁寧に作られています。</p>
